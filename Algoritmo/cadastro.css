@@ -1,0 +1,124 @@
+body {
+    background-color: #f6f6f6;
+    margin: 0
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+}
+
+.header img {
+    height: 45px;
+    color: white;
+    margin-top: 5px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+    gap: 2vh;
+}
+
+.container .headerContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container h1 {
+    margin: 0;
+    padding: 0;
+    margin-top: 100px;
+}
+
+.container p {
+    margin: 0;
+    padding: 0;
+}
+
+.container p a {
+    color: black;
+}
+
+.container .card button {
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #191c23e6;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bolder;
+    width: 80%;
+}
+
+.container .card button:hover {
+    background-color: white;
+    color: #191c23e6;
+    border: 1px solid;
+}
+
+.container .card input {
+    padding: 10px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 15px;
+    padding-bottom: 1.3vh;
+    padding-left: 2px;
+    font-weight: bold;
+}
+
+.container .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+    flex-direction: column;
+    width: 25%;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    height: fit-content;
+    margin-bottom: 5vh;
+}
+
+.container .card .mensagem {
+    font-weight: 500;
+    font-size: 20px;
+    color: #191c23e6;
+    text-align: center;
+}
+
+.footer {
+    background-color: black;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    justify-content: center;
+}

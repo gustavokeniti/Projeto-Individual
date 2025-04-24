@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="">Sobre mim</a>
+        <a href="index.html"><img class="logo" src="Imgs/logo.png"></a>
+        <a href="login.html">Sign In</a>
+    </div>
+
+    <div class="container">
+        <div class="headerContainer">
+            <h1>CRIAR CONTA</h1>
+            <p>Já tem conta? <a href="login.html">Sign In</a></p>
+        </div>
+        <div class="card">
+            <input placeholder="Nome" type="text" id="ipt_nome">
+            <input placeholder="Telefone" type="text" id="ipt_telefone">
+            <input placeholder="E-mail" type="text" id="ipt_email">
+            <input placeholder="Senha" type="password" id="ipt_senha">
+            <input placeholder="Rua" type="text" id="ipt_rua">
+            <input placeholder="Número" type="number" id="ipt_numero">
+            <input placeholder="Bairro" type="text" id="ipt_bairro">
+            <input placeholder="Cidade" type="text" id="ipt_cidade">
+            <button onclick="cadastro()">Criar conta</button>
+            <div class="mensagem" id="div_mensagem"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Gustavo Keniti Sandre Suzuki 1CCOA</p>
+    </div>
+</body>
+<script>
+    function cadastro() {
+        var nome = ipt_nome.value;
+        var telefone = ipt_telefone.value;
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
+        var rua = ipt_rua.value;
+        var numero = Number(ipt_numero.value);
+        var bairro = ipt_bairro.value;
+        var cidade = ipt_cidade.value;
+
+        var mensCadastro;
+
+        var tamanhoSenha = senha.length;
+
+        var terminaCom = email.endsWith(".com") || email.endsWith(".com.br");
+        var indiceArroba = email.indexOf("@");
+        var contemArroba = indiceArroba >= 0;
+
+        var telefoneValido = telefone.length;
+        var indiceTraço = telefone.indexOf("-");
+        var indiceParenteses = telefone.indexOf("(") || telefone.indexOf(")");
+
+        if (nome == "" || telefone == "" || email == "" || senha == "" || rua == "" || numero == "" || cidade == "" || bairro == "") {
+            mensCadastro = "Todos os campos devem ser preenchidos!"
+        }
+        else if (!terminaCom || !contemArroba) {
+            mensCadastro = "Por favor, insira um e-mail com formato válido (exemplo@sptech.com ou exemplo@sptech.com.br).";
+        }
+        else if (tamanhoSenha < 6) {
+            mensCadastro = "A senha deve ter pelo menos 6 caracteres.";
+        }
+        else if (telefoneValido != 14 || !indiceTraço || !indiceParenteses) {
+            mensCadastro = "O telefone não é válido. Por favor, insira um telefone com formato válido (exemplo: (11)12345-6789).";
+        } else {
+            mensCadastro = "Cadastro criado com sucesso!"
+        }
+
+        div_mensagem.innerHTML = `${mensCadastro}`
+
+    }
+</script>
+
+</html>
