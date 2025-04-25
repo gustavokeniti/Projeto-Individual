@@ -28,7 +28,7 @@
                 <p>Senha:</p>
                 <input type="password" id="ipt_senha">
             </div>
-            <button onclick="login()">Sign In</button>
+            <button id="btnlogin" onclick="login()">Sign In</button>
             <div class="mensagem" id="div_mensagem"></div>
             <a href="cadastro.html">Não tem cadastro?</a>
         </div>
@@ -78,7 +78,7 @@
             if (tentativas <= 0) {
                 mensLogin = ""
                 mensLogin += `<span><br>Usuário bloquado! Por favor, tente mais tarde.</span>`
-                document.getElementById("botaoLogin").disabled = true;
+                btnlogin.disabled = true;
             }
         }
 
