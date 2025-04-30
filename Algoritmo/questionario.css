@@ -30,8 +30,67 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 92vh;
+    height: fit-content;
     gap: 4vh;
+}
+
+.container h1 {
+    margin-top: 10vh;
+}
+
+.container .quiz {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 50%;
+    border-radius: 3vh;
+    gap: 3vh;
+    align-items: center;
+    margin-bottom: 10vh;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+
+.container .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.container .card p {
+    padding: 0;
+    margin: 0;
+}
+
+.container .card select {
+    padding: 1vh;
+    width: 50vh;
+}
+
+.container .card input {
+    padding: 1vh;
+    width: 48vh;
+}
+
+.container button {
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #191c23e6;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bolder;
+    width: 80%;
+}
+
+.container button:hover {
+    background-color: white;
+    color: #191c23e6;
+    border: 1px solid;
+    cursor: pointer;
 }
 
 .footer {
