@@ -63,16 +63,20 @@ body {
 .container .card p {
     padding: 0;
     margin: 0;
+    font-weight: bold;
 }
 
 .container .card select {
     padding: 1vh;
     width: 50vh;
+    border-radius: 1vh;
 }
 
 .container .card input {
     padding: 1vh;
     width: 48vh;
+    border-radius: 1vh;
+    border: 0.2vh solid;
 }
 
 .container button {
@@ -83,7 +87,7 @@ body {
     padding: 15px;
     font-size: 16px;
     font-weight: bolder;
-    width: 80%;
+    width: 40%;
 }
 
 .container button:hover {
