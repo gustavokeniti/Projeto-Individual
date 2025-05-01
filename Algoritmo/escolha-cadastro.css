@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #f6f6f6;
+    margin: 0;
+    font-family: url('https://fonts.googleapis.com/css2?family=Iceland&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+}
+
+.header img {
+    height: 45px;
+    color: white;
+    margin-top: 5px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15vh;
+    height: 92vh;
+    text-align: center;
+}
+
+.container h1 {
+    width: 10vh;
+    justify-content: center;
+    display: flex;
+}
+
+.container .card-fundo {
+    background-color: #111318e6;
+    border-radius: 2vh;
+    box-shadow: 5px 15px 30px #191c23e6;
+}
+
+.container .card-tec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2vh;
+    color: #191c23e6;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+
+.container .card-jog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2vh;
+    color: #191c23e6;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.container .card-tec button {
+    height: 45vh;
+    width: 40vh;
+    border-radius: 2vh;
+    background-image: url('Imgs/tecnico.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+    color: black;
+    font-weight: bold;
+    font-size: 5vh;
+    transition: 0.4s;
+}
+
+.container .card-jog button {
+    height: 45vh;
+    width: 40vh;
+    border-radius: 2vh;
+    background-image: url('Imgs/lebron.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+    color: black;
+    font-weight: bold;
+    font-size: 5vh;
+    transition: 0.4s;
+}
+
+.container .card-jog button:hover {
+    height: 60vh;
+    width: 55vh;
+    border-radius: 2vh;
+    background-image: url('Imgs/kobe.webp');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    opacity: 100;
+    transition: 0.4s;
+}
+
+.container .card-tec button:hover {
+    height: 60vh;
+    width: 55vh;
+    border-radius: 2vh;
+    background-image: url('Imgs/splitter.webp');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    opacity: 100;
+    transition: 0.4s;
+}
+
+.footer {
+    background-color: black;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
