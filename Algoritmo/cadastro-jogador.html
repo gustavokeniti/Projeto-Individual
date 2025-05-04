@@ -11,19 +11,25 @@
 <body>
     <div class="header">
         <a href="">Sobre mim</a>
+        <a href="index.html#banner3">Sobre nós</a>
         <a href="index.html"><img class="logo" src="Imgs/logo.png"></a>
-        <a href="login.html">Sign In</a>
+        <a href="login-jogador.html">Jogador</a>
+        <a href="login-tecnico.html">Técnico</a>
     </div>
 
     <div class="container">
         <div class="headerContainer">
             <h1>CRIAR CONTA DE JOGADOR</h1>
-            <p>Já tem conta? <a href="login.html">Sign In</a></p>
+            <p>Já tem conta? <a href="login-jogador.html">Sign In</a></p>
         </div>
         <div class="card">
             <div class="input">
                 <p>Nome:</p>
                 <input type="text" id="ipt_nome">
+            </div>
+            <div class="input">
+                <p>Sobrenome:</p>
+                <input type="text" id="ipt_sobrenome">
             </div>
             <div class="input">
                 <p>Telefone:</p>
@@ -65,6 +71,7 @@
 <script>
     function cadastro() {
         var nome = ipt_nome.value;
+        var sobrenome = ipt_sobrenome.value;
         var telefone = ipt_telefone.value;
         var email = ipt_email.value;
         var senha = ipt_senha.value;
@@ -85,7 +92,7 @@
         var indiceTraço = telefone.indexOf("-");
         var indiceParenteses = telefone.indexOf("(") || telefone.indexOf(")");
 
-        if (nome == "" || telefone == "" || email == "" || senha == "" || rua == "" || numero == "" || cidade == "" || bairro == "") {
+        if (nome == "" || telefone == "" || email == "" || senha == "" || rua == "" || numero == "" || cidade == "" || bairro == "" || sobrenome == "") {
             mensCadastro = "Todos os campos devem ser preenchidos!"
         }
         else if (!terminaCom || !contemArroba) {
@@ -97,7 +104,7 @@
         else if (telefoneValido != 14 || !indiceTraço || !indiceParenteses) {
             mensCadastro = "O telefone não é válido. Por favor, insira um telefone com formato válido (exemplo: (11)12345-6789).";
         } else {
-            window.location.href = "login.html";
+            window.location.href = "login-jogador.html";
             alert("Cadastro criado com sucesso!")
         }
 
