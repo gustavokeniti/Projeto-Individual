@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="">Sobre mim</a>
+        <a href="index.html#banner3">Sobre nós</a>
+        <a href="index.html"><img class="logo" src="./assets/imgs/logo.png"></a>
+        <a href="login-jogador.html">Jogador</a>
+        <a href="login-tecnico.html">Técnico</a>
+    </div>
+
+    <div class="container">
+        <div class="headerContainer">
+            <h1>INICIAR SESSÃO DE JOGADOR</h1>
+        </div>
+        <div class="card">
+            <div class="input">
+                <p>E-mail:</p>
+                <input type="text" id="ipt_email">
+            </div>
+            <div class="input">
+                <p>Senha:</p>
+                <input type="password" id="ipt_senha">
+            </div>
+            <button id="btnlogin" onclick="login()">Sign In</button>
+            <div class="mensagem" id="div_mensagem"></div>
+            <a href="escolha-cadastro.html">Não tem cadastro?</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Gustavo Keniti Sandre Suzuki 1CCOA</p>
+    </div>
+</body>
+
+</html>
+<script>
+    var tentativas = 3
+    function login() {
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
+
+        var mensLogin;
+
+        var tamanhoSenha = senha.length;
+
+        var terminaCom = email.endsWith(".com") || email.endsWith(".com.br");
+        var indiceArroba = email.indexOf("@");
+        var contemArroba = indiceArroba >= 0;
+
+
+        if (email == "" || senha == "") {
+            mensLogin = "<span><br>Todos os campos devem ser preenchidos!</span>"
+        }
+        else if (!terminaCom || !contemArroba) {
+            mensLogin = "<span><br>Por favor, insira um e-mail com formato válido <br>(exemplo@sptech.com ou exemplo@sptech.com.br).</span>";
+        }
+        else if (tamanhoSenha <= 5) {
+            mensLogin = '<span><br>Por favor, insira uma senha com mais de 6 caracteres.</span>'
+        }
+        else {
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idjogador;
+
+                        setTimeout(function () {
+                            window.location = "questionario.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    mensLogin = "<span><br>Email ou Senha incorreta.</span>";
+                    tentativas--
+                    mensLogin += `<span><br>Você ainda tem ${tentativas} tentativa(s)</span>`
+
+                    if (tentativas <= 0) {
+                        mensLogin = ""
+                        mensLogin += `<span><br>Usuário bloquado! Por favor, tente mais tarde.</span>`
+                        btnlogin.disabled = true;
+                    }
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+
+        }
+
+        div_mensagem.innerHTML = `${mensLogin}`
+
+    }
+</script>
+
+</html>

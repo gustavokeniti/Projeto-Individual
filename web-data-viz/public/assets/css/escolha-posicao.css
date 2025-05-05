@@ -33,7 +33,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 90.4vh;
+    height: 92vh;
     text-align: center;
 }
 
@@ -78,7 +78,7 @@ body {
     height: 25vh;
     width: 20vh;
     border-radius: 2vh;
-    background-image: url('Imgs/magicj2.jpg');
+    background-image: url('../imgs/magicj2.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -94,7 +94,7 @@ body {
     height: 35vh;
     width: 30vh;
     border-radius: 2vh;
-    background-image: url('Imgs/magicj.webp');
+    background-image: url('../imgs/magicj.webp');
     background-size: cover;
     background-position: center;
     border: none;
@@ -118,7 +118,7 @@ body {
     height: 25vh;
     width: 20vh;
     border-radius: 2vh;
-    background-image: url('Imgs/kobe2.jpg');
+    background-image: url('../imgs/kobe2.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -134,7 +134,7 @@ body {
     height: 35vh;
     width: 30vh;
     border-radius: 2vh;
-    background-image: url('Imgs/kobe.webp');
+    background-image: url('../imgs/kobe.webp');
     background-size: cover;
     background-position: center;
     border: none;
@@ -158,7 +158,7 @@ body {
     height: 25vh;
     width: 20vh;
     border-radius: 2vh;
-    background-image: url('Imgs/lebron2.webp');
+    background-image: url('../imgs/lebron2.webp');
     background-size: cover;
     background-position: center;
     border: none;
@@ -174,7 +174,7 @@ body {
     height: 35vh;
     width: 30vh;
     border-radius: 2vh;
-    background-image: url('Imgs/lebron.jpg');
+    background-image: url('../imgs/lebron.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -198,7 +198,7 @@ body {
     height: 25vh;
     width: 20vh;
     border-radius: 2vh;
-    background-image: url('Imgs/gasol2.jpg');
+    background-image: url('../imgs/gasol2.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -214,7 +214,7 @@ body {
     height: 35vh;
     width: 30vh;
     border-radius: 2vh;
-    background-image: url('Imgs/gasol.jpg');
+    background-image: url('../imgs/gasol.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -238,7 +238,7 @@ body {
     height: 25vh;
     width: 20vh;
     border-radius: 2vh;
-    background-image: url('Imgs/oneal2.jpg');
+    background-image: url('../imgs/oneal2.jpg');
     background-size: cover;
     background-position: center;
     border: none;
@@ -254,7 +254,7 @@ body {
     height: 35vh;
     width: 30vh;
     border-radius: 2vh;
-    background-image: url('Imgs/oneal.jpg');
+    background-image: url('../imgs/oneal.jpg');
     background-size: cover;
     background-position: center;
     border: none;

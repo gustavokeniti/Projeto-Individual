@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="./assets/css/cadastro.css">
 </head>
 
 <body>
     <div class="header">
         <a href="">Sobre mim</a>
         <a href="index.html#banner3">Sobre nós</a>
-        <a href="index.html"><img class="logo" src="Imgs/logo.png"></a>
+        <a href="index.html"><img class="logo" src="./assets/imgs/logo.png"></a>
         <a href="login-jogador.html">Jogador</a>
         <a href="login-tecnico.html">Técnico</a>
     </div>
@@ -84,8 +84,39 @@
         else if (telefoneValido != 14 || !indiceTraço || !indiceParenteses) {
             mensCadastro = "O telefone não é válido. Por favor, insira um telefone com formato válido (exemplo: (11)12345-6789).";
         } else {
-            window.location.href = "login-jogador.html";
-            alert("Cadastro criado com sucesso!")
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeServer: nome,
+                    sobrenomeServer: sobrenome,
+                    telefoneServer: telefone,
+                    emailServer: email,
+                    senhaServer: senha
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        
+                        mensCadastro = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                        setTimeout(() => {
+                            window.location = "login-jogador.html";
+                        }, "2000");
+
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
         }
 
         div_mensagem.innerHTML = `${mensCadastro}`

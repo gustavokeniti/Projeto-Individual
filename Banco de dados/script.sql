@@ -1,6 +1,16 @@
 CREATE DATABASE basketmetrics;
 USE basketmetrics;
 
+CREATE TABLE IF NOT EXISTS jogador (
+idjogador INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(45) NOT NULL,
+sobrenome VARCHAR(45) NOT NULL,
+telefone CHAR(14) NOT NULL,
+email VARCHAR(45) NOT NULL,
+senha VARCHAR(45) NOT NULL,
+PRIMARY KEY (idjogador)
+);
+
 CREATE TABLE IF NOT EXISTS skill (
 idskill INT NOT NULL AUTO_INCREMENT,
 idade INT NOT NULL,
@@ -11,22 +21,10 @@ passe INT NOT NULL,
 drible INT NOT NULL,
 controle INT NOT NULL,
 defesa INT NOT NULL,
-PRIMARY KEY (idskill)
-);
-
-CREATE TABLE IF NOT EXISTS jogador (
-idjogador INT NOT NULL AUTO_INCREMENT,
-nome VARCHAR(45) NOT NULL,
-sobrenome VARCHAR(45) NOT NULL,
-telefone CHAR(14) NOT NULL,
-email VARCHAR(45) NOT NULL,
-senha VARCHAR(45) NOT NULL,
-fkendereco INT NOT NULL,
-fkskill INT NOT NULL,
-PRIMARY KEY (idjogador),
-CONSTRAINT fk_jogador_copy1_skill1
-FOREIGN KEY (fkskill)
-REFERENCES skill (idskill)
+fkjogador INT NOT NULL,
+PRIMARY KEY (idskill),
+FOREIGN KEY (fkjogador)
+REFERENCES jogador(idjogador)
 );
 
 CREATE TABLE IF NOT EXISTS tecnico (
@@ -36,6 +34,8 @@ sobrenome VARCHAR(45) NOT NULL,
 telefone CHAR(14) NOT NULL,
 email VARCHAR(45) NOT NULL,
 senha VARCHAR(45) NOT NULL,
-fkendereco INT NOT NULL,
 PRIMARY KEY (idtecnico)
 );
+
+select * from jogador;
+select * from tecnico;
