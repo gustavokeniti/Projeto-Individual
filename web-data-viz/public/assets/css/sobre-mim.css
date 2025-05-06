@@ -55,6 +55,11 @@ body {
     font-size: large;
 }
 
+.container .texto h1 {
+    font-size: 5vh;
+    margin-top: 5vh
+}
+
 .footer {
     background-color: black;
     height: 8vh;
