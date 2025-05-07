@@ -22,7 +22,7 @@
             <a href="index.html">Log out</a>
         </div>
         <div class="graficos">
-            <h1>Posição - Armador</h1>
+            <h1>Geral</h1>
             <div class="kpiData">Última Atualização: <span id="dataHora"></span></div>
             <div class="first-grafico">
                 <canvas id="barra"></canvas>
@@ -46,12 +46,12 @@ function atualizarDataHora() {
 
 
 new Chart(graficoBarra, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa'],
+        labels: ['Armador', 'Ala-armador', 'Ala', 'Ala-pivô', 'Pivô'],
         datasets: [{
-            label: 'Habilidades',
-            data: [10, 8, 2, 3, 7],
+            label: 'Posições',
+            data: [5, 5, 5, 5, 5],
             borderColor: "black",
             backgroundColor: "indigo",
             borderWidth: 1,
@@ -66,7 +66,7 @@ new Chart(graficoBarra, {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Nível',
+                    text: 'Quantidade',
                     font: {
                     size: 20
                 }
@@ -80,7 +80,7 @@ new Chart(graficoBarra, {
             x: {
                 title: {
                     display: true,
-                    text: 'Skills',
+                    text: 'Posições',
                     font: {
                     size: 20
                 }
@@ -90,7 +90,7 @@ new Chart(graficoBarra, {
         plugins: {
             title: {
                 display: true,
-                text: 'Nome - (Telefone)',
+                text: 'Posições mais escolhidas',
                 font: {
                     size: 25
                 }
