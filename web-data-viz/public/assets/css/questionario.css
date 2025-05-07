@@ -54,6 +54,13 @@ body {
     padding-top: 5vh;
 }
 
+.container .quiz .mensagem {
+    font-weight: 500;
+    font-size: 20px;
+    color: #191c23e6;
+    text-align: center;
+}
+
 .container .card {
     display: flex;
     justify-content: center;
