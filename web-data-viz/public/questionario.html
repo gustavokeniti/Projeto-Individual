@@ -132,7 +132,7 @@
 </html>
 
 <script>
-    function questionario(){
+    function questionario() {
         var idade = Number(ipt_idade.value);
         var altura = Number(ipt_altura.value);
         var posicao = ipt_posicao.value;
@@ -147,7 +147,38 @@
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
             mensCadastro = "Todos os campos devem ser preenchidos!"
         } else {
-            mensCadastro = "okay"
+            fetch("/questionario/preencher", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    idadeServer: idade,
+                    alturaServer: altura,
+                    posicaoServer: posicao,
+                    arremessoServer: arremesso,
+                    passeServer: passe,
+                    dribleServer: drible,
+                    controleServer: controle,
+                    defesaServer: defesa
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+
+                        mensCadastro = "Questionario preenchido com sucesso!";
+
+                    } else {
+                        throw "Houve um erro ao tentar preencher o questionario!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
         }
 
         div_mensagem.innerHTML = `${mensCadastro}`
