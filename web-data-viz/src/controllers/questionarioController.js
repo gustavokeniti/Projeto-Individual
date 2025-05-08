@@ -10,7 +10,7 @@ function preencherQues(req, res) {
     var drible = req.body.dribleServer;
     var controle = req.body.controleServer;
     var defesa = req.body.defesaServer;
-    var fkjogador = req.body.idJogadorVincularServer
+    var fkjogador = req.body.idJogadorVincularServer;
 
     // Faça as validações dos valores
     if (idade == undefined) {
