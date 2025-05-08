@@ -1,6 +1,6 @@
 var usuarioModel = require("../models/questionarioModel");
 
-function preencher(req, res) {
+function preencherQues(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idade = req.body.idadeServer;
     var altura = req.body.alturaServer;
@@ -30,11 +30,11 @@ function preencher(req, res) {
     } else if (defesa == undefined) {
         res.status(400).send("Sua defesa está undefined!");
     } else if (fkjogador == undefined) {
-        res.status(400).send("Sua defesa está undefined!");
+        res.status(400).send("Sua fk está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.preencher(idade, altura, posicao, arremesso, passe, drible, controle, defesa, fkjogador)
+        questionarioModel.preencherQues(idade, altura, posicao, arremesso, passe, drible, controle, defesa, fkjogador)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -43,7 +43,7 @@ function preencher(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao preencher o questionario! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
@@ -53,5 +53,5 @@ function preencher(req, res) {
 }
 
 module.exports = {
-    preencher
+    preencherQues
 }

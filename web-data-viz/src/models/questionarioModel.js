@@ -1,7 +1,7 @@
 var database = require("../database/config")
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function preencher(idade, altura, posicao, arremesso, passe, drible, controle, defesa, fkjogador) {
+function preencherQues(idade, altura, posicao, arremesso, passe, drible, controle, defesa, fkjogador) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", idade, altura, posicao, arremesso, passe, drible, controle, defesa, fkjogador);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
@@ -14,5 +14,5 @@ function preencher(idade, altura, posicao, arremesso, passe, drible, controle, d
 }
 
 module.exports = {
-    preencher
+    preencherQues
 };

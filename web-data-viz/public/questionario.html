@@ -141,13 +141,14 @@
         var drible = ipt_drible.value;
         var controle = ipt_controle.value;
         var defesa = ipt_defesa.value;
+        var idJogadorVincular;
 
         var mensCadastro;
 
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
             mensCadastro = "Todos os campos devem ser preenchidos!"
         } else {
-            fetch("/questionario/preencher", {
+            fetch("/questionario/preencheQuesr", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -160,7 +161,8 @@
                     passeServer: passe,
                     dribleServer: drible,
                     controleServer: controle,
-                    defesaServer: defesa
+                    defesaServer: defesa,
+                    idJogadorVincularServer: idJogadorVincular
                 }),
             })
                 .then(function (resposta) {
