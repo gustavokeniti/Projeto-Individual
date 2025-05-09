@@ -148,7 +148,7 @@
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
             mensCadastro = "Todos os campos devem ser preenchidos!"
         } else {
-            fetch("/questionario/preencheQuesr", {
+            fetch("/questionario/preencherQues", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
