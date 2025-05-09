@@ -68,7 +68,7 @@
             mensLogin = '<span><br>Por favor, insira uma senha com mais de 6 caracteres.</span>'
         } else {
 
-            fetch("/usuarios/autenticar", {
+            fetch("/usuarios/autenticarTec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -92,7 +92,7 @@
 
                         setTimeout(function () {
                             window.location = "escolha-posicao.html";
-                        }, 1000); // apenas para exibir o loading
+                        }, 10); // apenas para exibir o loading
 
                     });
 
