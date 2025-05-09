@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/questionarioModel");
+var questionarioModel = require("../models/questionarioModel");
 
 function preencherQues(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html

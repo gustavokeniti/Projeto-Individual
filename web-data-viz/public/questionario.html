@@ -141,9 +141,13 @@
         var drible = ipt_drible.value;
         var controle = ipt_controle.value;
         var defesa = ipt_defesa.value;
-        var idJogadorVincular;
+        var idJogadorVincular = sessionStorage.ID_USUARIO;
+
 
         var mensCadastro;
+
+        console.log(idJogadorVincular)
+
 
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
             mensCadastro = "Todos os campos devem ser preenchidos!"
