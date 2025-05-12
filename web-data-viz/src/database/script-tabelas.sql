@@ -21,7 +21,7 @@ passe INT NOT NULL,
 drible INT NOT NULL,
 controle INT NOT NULL,
 defesa INT NOT NULL,
-fkjogador INT NOT NULL,
+fkjogador INT NOT NULL UNIQUE,
 PRIMARY KEY (idskill),
 FOREIGN KEY (fkjogador)
 REFERENCES jogador(idjogador)
@@ -39,3 +39,4 @@ PRIMARY KEY (idtecnico)
 
 select * from jogador;
 select * from tecnico;
+select * from skill;

@@ -119,7 +119,7 @@
                     <option value="10">10</option>
                 </select>
             </div>
-            <button onclick="questionario()">Enviar</button>
+            <button id="btnquestionario" onclick="questionario()">Enviar</button>
             <div class="mensagem" id="div_mensagem"></div>
         </div>
     </div>
@@ -143,14 +143,11 @@
         var defesa = ipt_defesa.value;
         var idJogadorVincular = sessionStorage.ID_USUARIO;
 
-
-        var mensCadastro;
-
         console.log(idJogadorVincular)
 
 
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
-            mensCadastro = "Todos os campos devem ser preenchidos!"
+            div_mensagem.innerHTML = "Todos os campos devem ser preenchidos!"
         } else {
             fetch("/questionario/preencherQues", {
                 method: "POST",
@@ -174,20 +171,19 @@
 
                     if (resposta.ok) {
 
-                        mensCadastro = "Questionario preenchido com sucesso!";
-
+                        div_mensagem.innerHTML = "Questionario preenchido com sucesso!";
+                        btnquestionario.disabled = true;
+                        
                     } else {
-                        throw "Houve um erro ao tentar preencher o questionario!";
+                        div_mensagem.innerHTML = "Usuário já realizou o questionario!";
                     }
                 })
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
                 });
-
-            return false;
-        }
-
-        div_mensagem.innerHTML = `${mensCadastro}`
+                
+                return false;
+            }
     }
 
 </script>

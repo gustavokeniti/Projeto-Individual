@@ -107,6 +107,13 @@ body {
     cursor: pointer;
 }
 
+.container button:disabled {
+    background-color: #e0e0e0;
+    color: white;
+    border: 1px solid;
+    cursor: pointer;
+}
+
 .footer {
     background-color: black;
     height: 8vh;
