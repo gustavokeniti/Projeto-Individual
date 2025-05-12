@@ -39,3 +39,4 @@ PRIMARY KEY (idtecnico)
 
 select * from jogador;
 select * from tecnico;
+
