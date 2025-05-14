@@ -28,6 +28,10 @@ body {
     font-weight: bold;
 }
 
+.header a:hover {
+    color: purple;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -47,6 +51,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 0 15px #f6f6f6 inset;
 }
 
 .container .banner1 h1 {

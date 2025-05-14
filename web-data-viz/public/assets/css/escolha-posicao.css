@@ -28,6 +28,10 @@ body {
     font-weight: bold;
 }
 
+.header a:hover {
+    color: purple;
+}
+
 .container {
     display: flex;
     justify-content: center;
