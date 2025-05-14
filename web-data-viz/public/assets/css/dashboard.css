@@ -73,11 +73,6 @@ body {
     gap: 1vh;
 }
 
-.container .side-bar img {
-    height: 4vh;
-    margin-top: 2.4vh;
-}
-
 .container .side-bar a {
     border-radius: 5px;
     border: none;
