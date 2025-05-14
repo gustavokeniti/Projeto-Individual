@@ -124,12 +124,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 45vh;
+    width: 40vh;
     text-align: center;
     background-color: #f6f6f6;
     color: #191c23e6;
-    height: 60vh;
-    padding: 5vh;
+    height: 40vh;
+    padding: 3vh;
     border-radius: 2vh;
     box-shadow: 0 0 10px #191c23e6;
 }
@@ -143,10 +143,12 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 0;
+    gap: 8vh;
 }
 
 .container .banner3 .card-container h1 {
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
+    margin-top: 0;
 }
 
 .container .banner3 .card-container .cards {
