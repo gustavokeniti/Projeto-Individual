@@ -48,10 +48,10 @@ function atualizarDataHora() {
 new Chart(graficoBarra, {
     type: 'bar',
     data: {
-        labels: ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa'],
+        labels: ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa', 'Média Final'],
         datasets: [{
             label: 'Habilidades',
-            data: [10, 8, 2, 3, 7],
+            data: [10, 8, 2, 3, 7, 6],
             borderColor: "black",
             backgroundColor: "indigo",
             borderWidth: 1,
@@ -90,7 +90,7 @@ new Chart(graficoBarra, {
         plugins: {
             title: {
                 display: true,
-                text: 'Nome - (Telefone)',
+                text: 'Idade - Nome - Altura - (Telefone)',
                 font: {
                     size: 25
                 }

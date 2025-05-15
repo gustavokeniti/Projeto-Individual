@@ -137,14 +137,17 @@
         var idade = Number(ipt_idade.value);
         var altura = Number(ipt_altura.value);
         var posicao = ipt_posicao.value;
-        var arremesso = ipt_arremesso.value;
-        var passe = ipt_passe.value;
-        var drible = ipt_drible.value;
-        var controle = ipt_controle.value;
-        var defesa = ipt_defesa.value;
+        var arremesso = Number(ipt_arremesso.value);
+        var passe = Number(ipt_passe.value);
+        var drible = Number(ipt_drible.value);
+        var controle = Number(ipt_controle.value);
+        var defesa = Number(ipt_defesa.value);
+        var mediaGeral = 0;
         var idJogadorVincular = sessionStorage.ID_USUARIO;
 
+        mediaGeral = (arremesso + passe + drible + controle + defesa) / 5;
         console.log(idJogadorVincular)
+        console.log(mediaGeral)
 
 
         if (idade == "" || altura == "" || posicao == "" || arremesso == "" || passe == "" || drible == "" || controle == "" || defesa == "") {
@@ -164,6 +167,7 @@
                     dribleServer: drible,
                     controleServer: controle,
                     defesaServer: defesa,
+                    mediaGeralServer: mediaGeral,
                     idJogadorVincularServer: idJogadorVincular
                 }),
             })
