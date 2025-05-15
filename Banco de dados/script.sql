@@ -21,6 +21,7 @@ passe INT NOT NULL,
 drible INT NOT NULL,
 controle INT NOT NULL,
 defesa INT NOT NULL,
+Mediageral DECIMAL NOT NULL,
 fkjogador INT NOT NULL UNIQUE,
 PRIMARY KEY (idskill),
 FOREIGN KEY (fkjogador)
