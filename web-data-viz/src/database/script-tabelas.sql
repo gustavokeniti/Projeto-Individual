@@ -43,24 +43,29 @@ FROM skill
 INNER JOIN jogador ON idjogador = fkjogador
 GROUP BY posicao;
 
-SELECT arremesso, passe, drible, controle, defesa, Mediageral
-FROM skill
+SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+FROM skill s
+INNER JOIN jogador j ON s.fkjogador = j.idjogador 
 WHERE posicao = 'Armador';
 
-SELECT arremesso, passe, drible, controle, defesa, Mediageral
-FROM skill
+SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+FROM skill s
+INNER JOIN jogador j ON s.fkjogador = j.idjogador 
 WHERE posicao = 'Ala-armador';
 
-SELECT arremesso, passe, drible, controle, defesa, Mediageral
-FROM skill
+SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+FROM skill s
+INNER JOIN jogador j ON s.fkjogador = j.idjogador 
 WHERE posicao = 'Ala';
 
-SELECT arremesso, passe, drible, controle, defesa, Mediageral
-FROM skill
+SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+FROM skill s
+INNER JOIN jogador j ON s.fkjogador = j.idjogador 
 WHERE posicao = 'Ala-pivô';
 
-SELECT arremesso, passe, drible, controle, defesa, Mediageral
-FROM skill
+SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+FROM skill s
+INNER JOIN jogador j ON s.fkjogador = j.idjogador 
 WHERE posicao = 'Pivô';
 
 select * from jogador;
