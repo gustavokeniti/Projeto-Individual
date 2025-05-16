@@ -15,8 +15,8 @@
     <div class="container">
         <div class="side-bar">
             <div class="titulo">
-            <h1>BasketMetrics</h1>
-        </div>
+                <h1>BasketMetrics</h1>
+            </div>
             <a href="dashboard-geral.html">Geral</a>
             <a href="escolha-posicao.html">Voltar</a>
             <a href="index.html">Log out</a>
@@ -34,69 +34,75 @@
 </html>
 <script>
 
-function atualizarDataHora() {
+    function atualizarDataHora() {
         const agora = new Date();
         const dataHoraFormatada = agora.toLocaleString("pt-BR"); // horario e data brasileiros
         document.getElementById("dataHora").textContent = dataHoraFormatada;
-      }
+    }
 
-      // Atualiza a hora quanto recarrega a pagina
-      atualizarDataHora();
+    // Atualiza a hora quanto recarrega a pagina
+    atualizarDataHora();
     const graficoBarra = document.getElementById('barra');
 
+    fetch("/dashboard/posicoesFavoritas")
+        .then(res => res.json())
+        .then(data => {
+            const labels = data.map(item => `${item.posicao}`);
+            const valores = data.map(item => item.total);
 
-new Chart(graficoBarra, {
-    type: 'pie',
-    data: {
-        labels: ['Armador', 'Ala-armador', 'Ala', 'Ala-pivô', 'Pivô'],
-        datasets: [{
-            label: 'Posições',
-            data: [5, 5, 5, 5, 5],
-            borderColor: "black",
-            backgroundColor: ['#3b0764', '#581c87', '#6b21a8', '#a855f7', '#9333ea'],
-            borderWidth: 1,
-        }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Quantidade',
-                    font: {
-                    size: 20
-                }
-                },
-                ticks: {
-                    callback: function (value) {
-                        return value;
+            new Chart(graficoBarra, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Posições',
+                        data: valores,
+                        borderColor: "black",
+                        backgroundColor: ['#3b0764', '#581c87', '#6b21a8', '#a855f7', '#9333ea'],
+                        borderWidth: 1,
                     }
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Posições',
-                    font: {
-                    size: 20
-                }
-                }
-            }
-        },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Posições mais escolhidas',
-                font: {
-                    size: 25
-                }
-            },
-            
-        },
-    },
-});
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Quantidade',
+                                font: {
+                                    size: 20
+                                }
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return value;
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Posições',
+                                font: {
+                                    size: 20
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Posições mais escolhidas',
+                            font: {
+                                size: 25
+                            }
+                        },
+
+                    },
+                },
+            });
+        });
 </script>

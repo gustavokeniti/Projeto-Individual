@@ -15,8 +15,8 @@
     <div class="container">
         <div class="side-bar">
             <div class="titulo">
-            <h1>BasketMetrics</h1>
-        </div>
+                <h1>BasketMetrics</h1>
+            </div>
             <a href="dashboard-geral.html">Geral</a>
             <a href="escolha-posicao.html">Voltar</a>
             <a href="index.html">Log out</a>
@@ -34,69 +34,82 @@
 </html>
 <script>
 
-function atualizarDataHora() {
+    function atualizarDataHora() {
         const agora = new Date();
         const dataHoraFormatada = agora.toLocaleString("pt-BR"); // horario e data brasileiros
         document.getElementById("dataHora").textContent = dataHoraFormatada;
-      }
+    }
 
-      // Atualiza a hora quanto recarrega a pagina
-      atualizarDataHora();
+    // Atualiza a hora quanto recarrega a pagina
+    atualizarDataHora();
     const graficoBarra = document.getElementById('barra');
 
+    fetch("/dashboard/Armadores")
+        .then(res => res.json())
+        .then(data => {
+        const labels = ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa', 'Média Geral'];
+        const valores = [
+            data[0].arremesso,
+            data[0].passe,
+            data[0].drible,
+            data[0].controle,
+            data[0].defesa,
+            data[0].Mediageral
+        ];
 
-new Chart(graficoBarra, {
-    type: 'bar',
-    data: {
-        labels: ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa', 'Média Final'],
-        datasets: [{
-            label: 'Habilidades',
-            data: [10, 8, 2, 3, 7, 6],
-            borderColor: "black",
-            backgroundColor: "indigo",
-            borderWidth: 1,
-        }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Nível',
-                    font: {
-                    size: 20
-                }
-                },
-                ticks: {
-                    callback: function (value) {
-                        return value;
+            new Chart(graficoBarra, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Habilidades',
+                        data: valores,
+                        borderColor: "black",
+                        backgroundColor: ['#3b0764', '#581c87', '#6b21a8', '#a855f7', '#9333ea', '#845ca8'],
+                        borderWidth: 1,
                     }
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Skills',
-                    font: {
-                    size: 20
-                }
-                }
-            }
-        },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Idade - Nome - Altura - (Telefone)',
-                font: {
-                    size: 25
-                }
-            },
-            
-        },
-    },
-});
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Nível',
+                                font: {
+                                    size: 20
+                                }
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return value;
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Skills',
+                                font: {
+                                    size: 20
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Idade - Nome - Altura - (Telefone)',
+                            font: {
+                                size: 25
+                            }
+                        },
+
+                    },
+                },
+            });
+        });
 </script>

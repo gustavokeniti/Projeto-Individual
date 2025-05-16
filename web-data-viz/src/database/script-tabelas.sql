@@ -38,6 +38,11 @@ senha VARCHAR(45) NOT NULL,
 PRIMARY KEY (idtecnico)
 );
 
+SELECT posicao, COUNT(*) AS total
+FROM skill
+INNER JOIN jogador ON idjogador = fkjogador
+GROUP BY posicao;
+
 select * from jogador;
 select * from tecnico;
 select * from skill;
