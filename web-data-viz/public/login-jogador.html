@@ -33,6 +33,7 @@
             </div>
             <button id="btnlogin" onclick="login()">Sign In</button>
             <div class="mensagem" id="div_mensagem"></div>
+            <div id="msg"></div>
             <a href="escolha-cadastro.html">Não tem cadastro?</a>
         </div>
     </div>
@@ -101,13 +102,13 @@
 
                     console.log("Houve um erro ao tentar realizar o login!");
 
-                    mensLogin = "<span><br>Email ou Senha incorreta.</span>";
+                    div_mensagem.innerHTML = "<span><br>Email ou Senha incorreta.</span>";
                     tentativas--
-                    mensLogin += `<span><br>Você ainda tem ${tentativas} tentativa(s)</span>`
+                    div_mensagem.innerHTML += `<span><br>Você ainda tem ${tentativas} tentativa(s)</span>`
 
                     if (tentativas <= 0) {
-                        mensLogin = ""
-                        mensLogin += `<span><br>Usuário bloquado! Por favor, tente mais tarde.</span>`
+                        div_mensagem.innerHTML = ""
+                        div_mensagem.innerHTML += `<span><br>Usuário bloquado! Por favor, tente mais tarde.</span>`
                         btnlogin.disabled = true;
                     }
 
@@ -123,7 +124,6 @@
             return false;
 
         }
-
         div_mensagem.innerHTML = `${mensLogin}`
 
     }

@@ -15,102 +15,117 @@
     <div class="container">
         <div class="side-bar">
             <div class="titulo">
-            <h1>BasketMetrics</h1>
-        </div>
+                <h1>BasketMetrics</h1>
+            </div>
             <a href="dashboard-geral.html">Geral</a>
             <a href="escolha-posicao.html">Voltar</a>
             <a href="index.html">Log out</a>
         </div>
         <div class="graficos">
-            <h1>Posição - Pivô</h1>
+            <h1>Posição - Pivos</h1>
             <div class="kpiData">Última Atualização: <span id="dataHora"></span></div>
-            <div class="first-grafico">
-                <canvas id="barra"></canvas>
-            </div>
+            <!-- O gráfico será inserido aqui dinamicamente -->
         </div>
     </div>
 </body>
 
 </html>
-<script>
 
-function atualizarDataHora() {
+<script>
+    function atualizarDataHora() {
         const agora = new Date();
         const dataHoraFormatada = agora.toLocaleString("pt-BR"); // horario e data brasileiros
         document.getElementById("dataHora").textContent = dataHoraFormatada;
-      }
+    }
 
-      // Atualiza a hora quanto recarrega a pagina
-      atualizarDataHora();
-    const graficoBarra = document.getElementById('barra');
+    // Atualiza a hora quanto recarrega a pagina
+    atualizarDataHora();
 
-
+    // Fetch para pegar os dados do servidor
     fetch("/dashboard/Pivos")
         .then(res => res.json())
         .then(data => {
-        const labels = ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa', 'Média Geral'];
-        const valores = [
-            data[0].arremesso,
-            data[0].passe,
-            data[0].drible,
-            data[0].controle,
-            data[0].defesa,
-            data[0].Mediageral
-        ];
+            // Para cada jogador no vetor de dados
+            data.forEach((jogador, index) => {
 
-            new Chart(graficoBarra, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Habilidades',
-                        data: valores,
-                        borderColor: "black",
-                        backgroundColor: ['#3b0764', '#581c87', '#6b21a8', '#a855f7', '#9333ea', '#845ca8'],
-                        borderWidth: 1,
-                    }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Nível',
-                                font: {
-                                    size: 20
+                console.log(jogador)
+                // Cria um container para o gráfico do jogador
+                const container = document.createElement('div');
+                container.classList.add('first-grafico');
+                
+                // Cria um canvas para o gráfico
+                const canvas = document.createElement('canvas');
+                canvas.id = `barra-${index}`;
+                container.appendChild(canvas);
+
+                // Adiciona o gráfico ao HTML, dentro da div "graficos"
+                document.querySelector('.graficos').appendChild(container);
+
+                const graficoBarra = document.getElementById(`barra-${index}`);
+
+                const labels = ['Arremesso', 'Passe', 'Drible', 'Controle', 'Defesa', 'Média Geral'];
+                const valores = [
+                    jogador.arremesso,
+                    jogador.passe,
+                    jogador.drible,
+                    jogador.controle,
+                    jogador.defesa,
+                    jogador.Mediageral
+                ];
+
+                // Cria o gráfico usando Chart.js
+                new Chart(graficoBarra, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: `Habilidades`,  // Nome do jogador no título
+                            data: valores,
+                            borderColor: "black",
+                            backgroundColor: ['#3b0764', '#581c87', '#6b21a8', '#a855f7', '#9333ea', '#845ca8'],
+                            borderWidth: 1,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Nível',
+                                    font: {
+                                        size: 20
+                                    }
+                                },
+                                ticks: {
+                                    callback: function (value) {
+                                        return value;
+                                    }
                                 }
                             },
-                            ticks: {
-                                callback: function (value) {
-                                    return value;
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Skills',
+                                    font: {
+                                        size: 20
+                                    }
                                 }
                             }
                         },
-                        x: {
+                        plugins: {
                             title: {
                                 display: true,
-                                text: 'Skills',
+                                text: `Nome - ${jogador.nome} | Idade - ${jogador.idade} | Altura - ${jogador.altura} | Telefone: ${jogador.telefone}`,
                                 font: {
-                                    size: 20
+                                    size: 25
                                 }
-                            }
-                        }
-                    },
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Idade - Nome - Altura - (Telefone)',
-                            font: {
-                                size: 25
-                            }
+                            },
                         },
-
                     },
-                },
+                });
             });
         });
 </script>

@@ -13,8 +13,9 @@ function posicoesFavoritas() {
 
 function quantidadeArmadores() {
     const instrucaoSql = `
-        SELECT arremesso, passe, drible, controle, defesa, Mediageral
-        FROM skill
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+        FROM skill s
+        INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Armador';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -23,8 +24,9 @@ function quantidadeArmadores() {
 
 function quantidadeAlaarmadores() {
     const instrucaoSql = `
-        SELECT arremesso, passe, drible, controle, defesa, Mediageral
-        FROM skill
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+        FROM skill s
+        INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Ala-armador';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -33,8 +35,9 @@ function quantidadeAlaarmadores() {
 
 function quantidadeAlas() {
     const instrucaoSql = `
-        SELECT arremesso, passe, drible, controle, defesa, Mediageral
-        FROM skill
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+        FROM skill s
+        INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Ala';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -43,8 +46,9 @@ function quantidadeAlas() {
 
 function quantidadeAlapivos() {
     const instrucaoSql = `
-        SELECT arremesso, passe, drible, controle, defesa, Mediageral
-        FROM skill
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+        FROM skill s
+        INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Ala-pivô';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -53,8 +57,9 @@ function quantidadeAlapivos() {
 
 function quantidadePivos() {
     const instrucaoSql = `
-        SELECT arremesso, passe, drible, controle, defesa, Mediageral
-        FROM skill
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
+        FROM skill s
+        INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Pivô';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
