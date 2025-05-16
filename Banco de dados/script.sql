@@ -43,6 +43,26 @@ FROM skill
 INNER JOIN jogador ON idjogador = fkjogador
 GROUP BY posicao;
 
+SELECT arremesso, passe, drible, controle, defesa, Mediageral
+FROM skill
+WHERE posicao = 'Armador';
+
+SELECT arremesso, passe, drible, controle, defesa, Mediageral
+FROM skill
+WHERE posicao = 'Ala-armador';
+
+SELECT arremesso, passe, drible, controle, defesa, Mediageral
+FROM skill
+WHERE posicao = 'Ala';
+
+SELECT arremesso, passe, drible, controle, defesa, Mediageral
+FROM skill
+WHERE posicao = 'Ala-pivô';
+
+SELECT arremesso, passe, drible, controle, defesa, Mediageral
+FROM skill
+WHERE posicao = 'Pivô';
+
 select * from jogador;
 select * from tecnico;
 select * from skill;
