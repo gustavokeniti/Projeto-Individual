@@ -13,7 +13,7 @@ function posicoesFavoritas() {
 
 function quantidadeArmadores() {
     const instrucaoSql = `
-        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral Overall
+        SELECT j.idjogador, j.nome, j.telefone, s.idade, s.altura, s.arremesso, s.passe, s.drible, s.controle, s.defesa, s.Mediageral
         FROM skill s
         INNER JOIN jogador j ON s.fkjogador = j.idjogador 
         WHERE posicao = 'Armador';
