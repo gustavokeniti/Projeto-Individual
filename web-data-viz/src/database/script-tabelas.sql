@@ -14,7 +14,7 @@ PRIMARY KEY (idjogador)
 CREATE TABLE IF NOT EXISTS skill (
 idskill INT NOT NULL AUTO_INCREMENT,
 idade INT NOT NULL,
-altura DECIMAL(5,2) NOT NULL,
+altura INT NOT NULL,
 posicao VARCHAR(45) NOT NULL,
 arremesso INT NOT NULL,
 passe INT NOT NULL,
