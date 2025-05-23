@@ -178,17 +178,23 @@
 
                         div_mensagem.innerHTML = "Questionario preenchido com sucesso!";
                         btnquestionario.disabled = true;
-                        
+                        setTimeout(() => {
+                            window.location = "index.html";
+                        }, "1500");
+
                     } else {
                         div_mensagem.innerHTML = "Usuário já realizou o questionario!";
+                        setTimeout(() => {
+                            window.location = "index.html";
+                        }, "1500");
                     }
                 })
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
                 });
-                
-                return false;
-            }
+
+            return false;
+        }
     }
 
 </script>
