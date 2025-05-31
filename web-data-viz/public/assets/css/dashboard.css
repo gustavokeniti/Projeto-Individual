@@ -66,9 +66,8 @@ body {
     position: fixed;
 }
 
-.container .side-bar .titulo {
-    display: flex;
-    color: white;
+.container .side-bar img {
+    height: 150px;
     gap: 1vh;
 }
 
