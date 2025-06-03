@@ -36,11 +36,10 @@
 
     function atualizarDataHora() {
         const agora = new Date();
-        const dataHoraFormatada = agora.toLocaleString("pt-BR"); // horario e data brasileiros
+        const dataHoraFormatada = agora.toLocaleString("pt-BR"); 
         document.getElementById("dataHora").textContent = dataHoraFormatada;
     }
 
-    // Atualiza a hora quanto recarrega a pagina
     atualizarDataHora();
     const graficoBarra = document.getElementById('barra');
 
